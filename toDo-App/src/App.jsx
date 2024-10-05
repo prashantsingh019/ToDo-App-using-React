@@ -1,10 +1,14 @@
 import React from 'react'
+import Navbar from './components/Navbar'
+import TaskList from './components/TaskList'
 
 function App() {
+ 
   return (
-    <div>
-        <h3 className='bg-cyan-950 text-white'>Red</h3>
-    </div>
+    <>
+        <Navbar />
+        <TaskList />
+    </>
   )
 }
 
