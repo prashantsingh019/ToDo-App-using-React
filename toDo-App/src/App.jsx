@@ -1,13 +1,15 @@
 import React from 'react'
 import Navbar from './components/Navbar'
-import TaskList from './components/TaskList'
+import ToDoList from './components/ToDoList';
 
 function App() {
  
   return (
     <>
         <Navbar />
-        <TaskList />
+        <ToDoList/>
+        
+        
     </>
   )
 }

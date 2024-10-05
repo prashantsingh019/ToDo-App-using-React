@@ -1,6 +1,6 @@
 import React from "react";
 
-function TaskCard({data}) {
+function ToDoItem({data}) {
      console.log(data);
      
     const handleEdit = () => {
@@ -28,4 +28,4 @@ function TaskCard({data}) {
   );
 }
 
-export default TaskCard;
+export default ToDoItem;
