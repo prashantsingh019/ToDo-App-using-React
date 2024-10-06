@@ -1,6 +1,8 @@
 import React from "react";
-import ToDoItem from "./ToDoItem";
+import ToDoItem from "./ToDoItem.jsx";
 import { useState } from "react";
+import { v4 as uuidv4 } from 'uuid';
+
 
 function ToDoList() {
   const [toDo, setToDo] = useState("");
@@ -8,13 +10,23 @@ function ToDoList() {
   const handleChange = (e) => {
     setToDo(e.target.value);
   };
+
   const handleClick = () => {
     if(toDo == "") return alert("add task first then press [add+]");
-    setToDoList([...toDoList, {toDo,isDone:false}]);
+    setToDoList([...toDoList, {toDo,isDone:false,id:uuidv4()}]);
     setToDo("");
-  
   };
-
+  const checkKey = (e) => {
+      if(e.key == 'Enter'){
+        handleClick();
+      }
+  }
+  const handleCheck = (id) =>{
+    const updatedTasks = toDoList.map((toDo)=>{
+       return toDo.id == id ? {...toDo,isDone: !toDo.isDone}:toDo
+    })
+    setToDoList(updatedTasks);
+  }
   return (
     <React.Fragment>
       <div className="container mx-auto bg-violet-200 my-5 rounded p-5 min-h-[80vh] w-1/3">
@@ -28,6 +40,8 @@ function ToDoList() {
               placeholder="Add a new task"
               onChange={handleChange}
               id="task-in"
+              value={toDo}
+              onKeyDown={checkKey}
             />
             <button
               className="bg-slate-500 rounded text-white px-2 cursor-pointer"
@@ -43,7 +57,7 @@ function ToDoList() {
 
           <div className="todos">
             {toDoList.map((item) => {
-              return < ToDoItem data={item} />;
+              return < ToDoItem data={item} key={item.id} onCheck={handleCheck}/>;
             })}
           </div>
         </div>
