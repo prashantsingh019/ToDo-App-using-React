@@ -1,15 +1,18 @@
 import React from "react";
 
-function ToDoItem({ data,onCheck }) {
+function ToDoItem({ data,onCheck,onDelete }) {
   
 
   const handleEdit = () => {
     let input = document.getElementById("task-in");
     input.value = data.toDo;
+    set
+    handleDelete(data.id);
   };
-  const handleDelete = () => {
 
-  };
+  const handleDelete = (e) => {
+    onDelete(data.id)
+    };
   const handleCheckBox = (e) => {
      let id = e.target.name;
      onCheck(id);
@@ -18,7 +21,7 @@ function ToDoItem({ data,onCheck }) {
   return (
     <div
       key={data.toDo}
-      className="todo flex justify-between bg-violet-100 my-1 px-1 rounded items-center text-[red]"
+      className="todo flex justify-between bg-violet-100 my-1 px-1 rounded items-center"
     >
       <div className="flex gap-2 items-center">
         <input
