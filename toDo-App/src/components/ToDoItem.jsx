@@ -1,28 +1,25 @@
 import React from "react";
-
-function ToDoItem({ data,onCheck,onDelete }) {
-  
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPenToSquare,faTrashCan } from '@fortawesome/free-solid-svg-icons'
+function ToDoItem({ data, onCheck, onDelete, onEdit }) {
   const handleEdit = () => {
-    let input = document.getElementById("task-in");
-    input.value = data.toDo;
-    set
-    handleDelete(data.id);
+    onEdit(data.id);
   };
 
   const handleDelete = (e) => {
-    onDelete(data.id)
-    };
+    onDelete(data.id);
+  };
   const handleCheckBox = (e) => {
-     let id = e.target.name;
-     onCheck(id);
-  }
-  
+    let id = e.target.name;
+    onCheck(id);
+  };
+
   return (
     <div
       key={data.toDo}
       className="todo flex justify-between bg-violet-100 my-1 px-1 rounded items-center"
     >
+    
       <div className="flex gap-2 items-center">
         <input
           type="checkbox"
@@ -39,13 +36,13 @@ function ToDoItem({ data,onCheck,onDelete }) {
           className="bg-slate-500 rounded text-white px-2 cursor-pointer my-2"
           onClick={handleEdit}
         >
-          Edit
+         <FontAwesomeIcon icon={faPenToSquare} />
         </button>
         <button
           className="bg-slate-500 rounded text-white px-2 cursor-pointer my-2"
           onClick={handleDelete}
         >
-          Delete
+         <FontAwesomeIcon icon={faTrashCan} />
         </button>
       </div>
     </div>

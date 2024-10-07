@@ -8,15 +8,15 @@ import Button from "./Button";
 
 function Navbar() {
   return (
-    <div className="navbar">
+    <div className="navbar  max-sm:justify-center">
 
       <div className="logo">
         <img src={toDo} alt="_logo" width="30px" />
-        <div className="App_name">To Do App</div>
-        <span className="author text-xl text-[#a3a3a3]">&copy; Managed and developed by Prashant Singh</span>
+        <div className="App_name max-sm:text-center">To Do App</div>
+        <span className="author text-xl text-[#a3a3a3] hidden lg:block">&copy; Managed and developed by Prashant Singh</span>
       </div>
 
-      <div className="nav-links text-[#767676]">
+      <div className="nav-links text-[#767676] max-sm:hidden">
         <Button name="GitHub"  icon={gitHub}/>
         <Button name="Project Link" icon={reactLogo}/>
         <Button name="How to use" icon={questMark}/>
