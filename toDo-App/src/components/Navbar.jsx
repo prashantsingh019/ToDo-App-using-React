@@ -17,9 +17,9 @@ function Navbar() {
       </div>
 
       <div className="nav-links text-[#767676] max-sm:hidden">
-        <Button name="GitHub"  icon={gitHub}/>
-        <Button name="Project Link" icon={reactLogo}/>
-        <Button name="How to use" icon={questMark}/>
+        <Button name="GitHub"  icon={gitHub} url="https://github.com/prashantsingh019"/>
+        <Button name="Project Link" icon={reactLogo} url="#"/>
+        <Button name="How to use" icon={questMark} url="#"/>
       </div>
     </div>
   );
